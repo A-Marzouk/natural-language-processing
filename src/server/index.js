@@ -3,8 +3,6 @@ var path = require('path');
 const express = require('express');
 const app = express();
 
-app.use(express.static('dist'));
-
 
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
@@ -15,12 +13,11 @@ app.use(bodyParser.json());
 // Cors for cross origin allowance
 const cors = require('cors');
 app.use(cors());
-
-
 const PORT = 8080 || process.env.port;
 
 
-console.log(__dirname);
+
+app.use(express.static('dist'))
 
 
 app.listen(PORT , function () {
@@ -30,5 +27,6 @@ app.listen(PORT , function () {
 
 // routes:
 app.get('/', function (req, res) {
-    res.sendFile(path.resolve('src/client/views/index.html'));
+    res.sendFile(path.resolve('dist/index.html'));
 });
+
