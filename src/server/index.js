@@ -24,7 +24,8 @@ app.use(bodyParser.json());
 // Cors for cross origin allowance
 const cors = require('cors');
 app.use(cors());
-const PORT = 8080 || process.env.port;
+
+const PORT = process.env.PORT || 8080;
 
 // set dist directory for static files.
 app.use(express.static('dist'));
@@ -38,6 +39,11 @@ app.listen(PORT , function () {
 app.get('/', function (req, res) {
     res.sendFile(path.resolve('dist/index.html'));
 });
+
+app.get('/test', function (req, res) {
+    res.send('hi');
+});
+
 
 app.post('/evaluate', function (req, res) {
     // API Request
