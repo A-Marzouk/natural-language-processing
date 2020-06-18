@@ -3,10 +3,21 @@ var path = require('path');
 const express = require('express');
 const app = express();
 
+// .env config
+const dotenv = require('dotenv');
+dotenv.config();
 
 /* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
 const bodyParser = require('body-parser');
+
+// API
+const aylien = require("aylien_textapi");
+
+const textAPI = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -15,13 +26,23 @@ const cors = require('cors');
 app.use(cors());
 const PORT = 8080 || process.env.port;
 
+// set dist directory for static files.
+app.use(express.static('dist'));
 
-
-app.use(express.static('dist'))
-
-
+// listen to port
 app.listen(PORT , function () {
     console.log('Server is listening on port 8080!')
+});
+
+
+
+// API Request
+textAPI.sentiment({
+    'text': 'John is a very good football player!'
+}, function(error, response) {
+    if (error === null) {
+        console.log(response);
+    }
 });
 
 

@@ -15,9 +15,18 @@
     </header>
 
 
-    <div class="content">
+    <div class="container mt-5">
 
-        <button onclick="Client.helloWorld()">console hello</button>
+        <h2>Please enter the text you would like to evaluate:</h2>
+
+        <form id="textEvaluateForm" onsubmit="return Client.handleFormSubmit(event)">
+            <div class="form-group">
+                <label for="textInput">Text:</label>
+                <textarea class="form-control" id="textInput" cols="5" aria-describedby="emailHelp" placeholder="Enter text..." required></textarea>
+                <small id="emailHelp" class="form-text text-muted">Maximum Request URI size is 8 kB </small>
+            </div>
+            <button type="submit" class="btn btn-primary">Evaluate</button>
+        </form>
 
     </div>
 

@@ -1,6 +1,8 @@
-import {helloWorld} from './js/handleFormSubmit';
+require('bootstrap');
 import './styles/main.scss';
 
+import {handleFormSubmit} from './js/handleFormSubmit';
+
 export {
-    helloWorld
+    handleFormSubmit
 }
