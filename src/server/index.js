@@ -34,20 +34,22 @@ app.listen(PORT , function () {
     console.log('Server is listening on port 8080!')
 });
 
-
-
-// API Request
-textAPI.sentiment({
-    'text': 'John is a very good football player!'
-}, function(error, response) {
-    if (error === null) {
-        console.log(response);
-    }
-});
-
-
 // routes:
 app.get('/', function (req, res) {
     res.sendFile(path.resolve('dist/index.html'));
+});
+
+
+app.post('/evaluate', function (req, res) {
+    // API Request
+    textAPI.sentiment({
+        'text': req.body.textInput
+    //    John is a very good football player!
+    }, function(error, response) {
+        if (error === null) {
+            res.send({evaluationData: response});
+        }
+    });
+
 });
 

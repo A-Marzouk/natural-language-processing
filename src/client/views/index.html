@@ -22,23 +22,36 @@
         <form id="textEvaluateForm" onsubmit="return Client.handleFormSubmit(event)">
             <div class="form-group">
                 <label for="textInput">Text:</label>
-                <textarea class="form-control" id="textInput" cols="5" aria-describedby="emailHelp" placeholder="Enter text..." required></textarea>
-                <small id="emailHelp" class="form-text text-muted">Maximum Request URI size is 8 kB </small>
+                <textarea class="form-control" id="textInput" name="textInput" cols="5" aria-describedby="emailHelp" placeholder="Enter text..." required></textarea>
+                <div id="errorFeedback" class="error"></div>
             </div>
             <button type="submit" class="btn btn-primary">Evaluate</button>
         </form>
+
+
+        <div id="evaluationWrapper" class="evaluationText">
+            <hr>
+            <h4>
+                Result:
+            </h4>
+
+            <div id="evaluation">
+
+            </div>
+
+        </div>
 
     </div>
 
 
     <script>
         // Check that service workers are supported
-        if ('serviceWorker' in navigator) {
-            // Use the window load event to keep the page load performant
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js');
-            });
-        }
+        // if ('serviceWorker' in navigator) {
+        //     // Use the window load event to keep the page load performant
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/service-worker.js');
+        //     });
+        // }
     </script>
 
 </body>
