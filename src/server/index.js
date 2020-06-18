@@ -39,6 +39,10 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve('dist/index.html'));
 });
 
+app.get('/test', function (req, res) {
+    res.send('test works fine');
+});
+
 
 app.post('/evaluate', function (req, res) {
     // API Request
