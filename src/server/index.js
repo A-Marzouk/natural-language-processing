@@ -42,9 +42,9 @@ app.get('/', function (req, res) {
 
 app.post('/evaluate', function (req, res) {
     // API Request
-    textAPI.sentiment({
-        'text': req.body.textInput
-    //    John is a very good football player!
+    textAPI.combined({
+        "url": req.body.textInput,
+        "endpoint": ["language", "extract", "sentiment"],
     }, function(error, response) {
         if (error === null) {
             res.send({evaluationData: response});
