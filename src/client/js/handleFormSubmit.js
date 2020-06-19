@@ -36,4 +36,6 @@ function handleFormSubmit(event) {
 
 }
 
-export { handleFormSubmit };
+module.exports = {
+    handleFormSubmit
+} ;

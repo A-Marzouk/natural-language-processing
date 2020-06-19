@@ -1,6 +1,5 @@
-const handleFormSubmit = require('../src/client/js/handleFormSubmit');
-
+const handleFormSubmitModule = require('../src/client/js/handleFormSubmit');
 
 test('Function postData is defined.', () => {
-    expect(handleFormSubmit).toBeDefined();
+    expect(handleFormSubmitModule.handleFormSubmit).toBeDefined();
 });

@@ -1,8 +1,6 @@
-const postData = require('../src/client/js/postData');
+const postDataModule = require('../src/client/js/postData');
 
-
-test('the data is peanut butter', () => {
-    return postData('/evaluate', {textInput: 'John is a good man'}).then(data => {
-        expect(data).toBeTruthy();
-    });
+test('postData function is defined', () => {
+    expect(postDataModule.postData).toBeDefined();
 });
+
